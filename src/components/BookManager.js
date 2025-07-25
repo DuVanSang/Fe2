@@ -14,7 +14,7 @@ function BookManager({ token, onLogout }) {
   const fetchBooks = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${apiUrl}/books/GetAll`);
+      const res = await axios.get(`${apiUrl}/api/books/GetAll`);
       setBooks(res.data.result.data || []);
     } catch (err) {
       setMessage('Không lấy được danh sách sách');
@@ -31,7 +31,7 @@ function BookManager({ token, onLogout }) {
     e.preventDefault();
     setMessage('');
     try {
-      await axios.post(`${apiUrl}/books/Create`, {
+      await axios.post(`${apiUrl}/api/books/Create`, {
         title,
         price: parseFloat(price),
         description
@@ -49,7 +49,7 @@ function BookManager({ token, onLogout }) {
   const handleDelete = async (id) => {
     setMessage('');
     try {
-      await axios.delete(`${apiUrl}/books/Delete`, {
+      await axios.delete(`${apiUrl}/api/books/Delete`, {
         params: { id },
         headers: { Authorization: `Bearer ${token}` }
       });

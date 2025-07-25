@@ -10,11 +10,11 @@ function Login({ onLogin }) {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8081'}/auth/Login`, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8081'}/api/auth/Login`, {
         name: username,
         password
       });
-      if (res.data && res.data.result && res.data.result.token) {
+      if (res.data && res.data.result && res.data.result.token) { 
         onLogin(res.data.result.token);
       } else {
         setError('Đăng nhập thất bại!');
