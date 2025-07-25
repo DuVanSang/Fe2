@@ -1,0 +1,15 @@
+body {
+  background: #eaeaea;
+}
+
+input, button {
+  font-size: 16px;
+}
+
+table {
+  background: white;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+}
